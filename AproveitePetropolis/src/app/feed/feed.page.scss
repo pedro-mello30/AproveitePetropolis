@@ -3,3 +3,43 @@
   /*  overflow-x: scroll; /*
   /*  -webkit-overflow-scrolling: touch;  */
 }
+
+
+.cupomBox{
+  display: -webkit-inline-box;
+  width: 100%;
+  overflow-x: auto;
+
+  .item{
+    height: 90px;
+    width: 100px;
+    background-color: #3a7be0;
+    margin-right: 15px;
+    border-radius: 5px;
+  }
+}
+
+.categoriaBox{
+  display: -webkit-inline-box;
+  width: 100%;
+  overflow-x: auto;
+
+  .item{
+    margin-right: 15px;
+    text-align: center;
+    .icon{
+      border-radius: 5px;
+      background-color: #e03a3a;
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+.estabelecimentoBox{
+  ion-card{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+

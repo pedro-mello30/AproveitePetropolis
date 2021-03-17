@@ -10,91 +10,157 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <!-- Scrollable Segment -->
-        <ion-segment scrollable value="heart">
-          <ion-segment-button value="home">
-            <ion-icon name="home"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="heart">
-            <ion-icon name="heart"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="pin">
-            <ion-icon name="pin"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="star">
-            <ion-icon name="star"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="call">
-            <ion-icon name="call"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="globe">
-            <ion-icon name="globe"></ion-icon>
-          </ion-segment-button>
-          <ion-segment-button value="basket">
-            <ion-icon name="basket"></ion-icon>
-          </ion-segment-button>
-        </ion-segment>
 
 
+        <h5>Cupons</h5>
 
-        <ion-list lines="none">
-          <h5>Cupons</h5>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-        </ion-list>
+        <div class="cupomBox">
+          <div class="item">
+<!--            <img src="assets">-->
+            <p>10%</p>
+          </div>
+
+          <div class="item">
+            <!--            <img src="assets">-->
+            <p>10%</p>
+          </div>
+          <div class="item">
+            <!--            <img src="assets">-->
+            <p>10%</p>
+          </div>
+          <div class="item">
+            <!--            <img src="assets">-->
+            <p>10%</p>
+          </div>
+          <div class="item">
+            <!--            <img src="assets">-->
+            <p>10%</p>
+          </div>
+          <div class="item">
+            <!--            <img src="assets">-->
+            <p>10%</p>
+          </div>
+        </div>
+
+<!--        <ion-list class="cupomBox" lines="none">-->
+<!--          <ion-item class="item">-->
+<!--            <ion-label>10%</ion-label>-->
+<!--          </ion-item>-->
+<!--          <ion-item class="item">-->
+<!--            <ion-label>10%</ion-label>-->
+<!--          </ion-item>-->
+<!--          <ion-item class="item">-->
+<!--            <ion-label>10%</ion-label>-->
+<!--          </ion-item>-->
+<!--          <ion-item class="item">-->
+<!--            <ion-label>10%</ion-label>-->
+<!--          </ion-item>-->
+<!--          <ion-item class="item">-->
+<!--            <ion-label>10%</ion-label>-->
+<!--          </ion-item>-->
+<!--          <ion-item class="item">-->
+<!--            <ion-label>10%</ion-label>-->
+<!--          </ion-item>-->
+<!--          <ion-item class="item">-->
+<!--            <ion-label>10%</ion-label>-->
+<!--          </ion-item>-->
+<!--        </ion-list>-->
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-list lines="none">
-          <h5>Categorias</h5>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>10%</ion-label>
-          </ion-item>
-        </ion-list>
+        <h5>Categorias</h5>
+
+        <div class="categoriaBox">
+
+
+            <div class="item" [routerLink]="['feed/:idCategoria']">
+              <!--            <img src="assets">-->
+              <div class="icon">
+
+              </div>
+              <p>Todas</p>
+            </div>
+
+
+
+
+          <div class="item">
+            <!--            <img src="assets">-->
+            <div class="icon">
+
+            </div>
+            <p>Todas</p>
+          </div>
+          <div class="item">
+            <!--            <img src="assets">-->
+            <div class="icon">
+
+            </div>
+            <p>Todas</p>
+          </div>
+
+          <div class="item">
+            <!--            <img src="assets">-->
+            <div class="icon">
+
+            </div>
+            <p>Todas</p>
+          </div>
+
+          <div class="item">
+            <!--            <img src="assets">-->
+            <div class="icon">
+
+            </div>
+            <p>Todas</p>
+          </div>
+
+          <div class="item">
+            <!--            <img src="assets">-->
+            <div class="icon">
+
+            </div>
+            <p>Todas</p>
+          </div>
+
+          <div class="item">
+            <!--            <img src="assets">-->
+            <div class="icon">
+
+            </div>
+            <p>Todas</p>
+          </div>
+
+        </div>
+
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
         <h5>Estabelecimentos</h5>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            <ion-card-title>Card Title</ion-card-title>
-          </ion-card-header>
 
-          <ion-card-content>
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-card-content>
-        </ion-card>
+        <div class="estabelecimentoBox">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+          </ion-card>
+
+
+        </div>
+
+
+
+
       </ion-col>
     </ion-row>
   </ion-grid>
