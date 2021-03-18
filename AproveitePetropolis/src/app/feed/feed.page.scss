@@ -11,11 +11,13 @@
   overflow-x: auto;
 
   .item{
-    height: 90px;
-    width: 100px;
-    background-color: #3a7be0;
     margin-right: 15px;
-    border-radius: 5px;
+    ion-thumbnail{
+      --border-radius: 5px;
+      width: 100px;
+      height: 90px;
+      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+    }
   }
 }
 
@@ -27,11 +29,16 @@
   .item{
     margin-right: 15px;
     text-align: center;
-    .icon{
-      border-radius: 5px;
-      background-color: #e03a3a;
+    ion-thumbnail{
+      --border-radius: 5px;
       width: 70px;
       height: 70px;
+      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+    }
+    p{
+      color: #333333;
+      font-size: 12px;
+      margin-bottom: 0px;
     }
   }
 }
@@ -41,5 +48,54 @@
     margin-left: 0px;
     margin-right: 0px;
   }
+  .estabelecimento-item{
+    border-radius: 5px;
+    min-height: 80px;
+    margin-bottom:  15px;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+
+    ion-thumbnail{
+      float: left;
+      height: 80px;
+      width: 120px;
+      img{
+        border-radius: 5px 0px 0px 5px;
+      }
+    }
+    p{
+      font-size: 12px;
+      margin: 0px;
+
+    }
+    .content{
+      margin-left: 120px;
+      padding: 10px;
+      .title{
+        font-size: 14px;
+        float: left;
+        color: #333333;
+        margin-botton: 8px;
+      }
+      .cupomLink{
+        position: absolute;
+        right: 15px;
+        font-size: 12px;
+        color: #bea063;
+      }
+      .tags, .adresss{
+        float: left;
+        color: #bcbcbc;
+        font-size: 11px;
+      }
+      .adresss{
+        margin-top: 20px;
+      }
+
+    }
+  }
+}
+.title{
+  font-size: 14px;
+  color: #333333;
 }
 

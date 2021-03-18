@@ -12,34 +12,44 @@
       <ion-col>
 
 
-        <h5>Cupons</h5>
+        <h5 class="title ion-no-margin ion-margin-bottom">Cupons</h5>
 
         <div class="cupomBox">
+
           <div class="item">
 <!--            <img src="assets">-->
-            <p>10%</p>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
           </div>
 
           <div class="item">
             <!--            <img src="assets">-->
-            <p>10%</p>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
           </div>
           <div class="item">
             <!--            <img src="assets">-->
-            <p>10%</p>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
           </div>
+
           <div class="item">
             <!--            <img src="assets">-->
-            <p>10%</p>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
           </div>
+
           <div class="item">
             <!--            <img src="assets">-->
-            <p>10%</p>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
           </div>
-          <div class="item">
-            <!--            <img src="assets">-->
-            <p>10%</p>
-          </div>
+
         </div>
 
 <!--        <ion-list class="cupomBox" lines="none">-->
@@ -70,66 +80,48 @@
 
     <ion-row>
       <ion-col>
-        <h5>Categorias</h5>
+        <h5 class="title ion-margin-bottom">Categorias</h5>
 
         <div class="categoriaBox">
 
-
-            <div class="item" [routerLink]="['feed/:idCategoria']">
-              <!--            <img src="assets">-->
-              <div class="icon">
-
-              </div>
-              <p>Todas</p>
-            </div>
-
-
-
-
           <div class="item">
             <!--            <img src="assets">-->
-            <div class="icon">
-
-            </div>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
             <p>Todas</p>
           </div>
           <div class="item">
             <!--            <img src="assets">-->
-            <div class="icon">
-
-            </div>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
+            <p>Todas</p>
+          </div>
+          <div class="item">
+            <!--            <img src="assets">-->
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
+            <p>Todas</p>
+          </div>
+          <div class="item">
+            <!--            <img src="assets">-->
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
             <p>Todas</p>
           </div>
 
-          <div class="item">
-            <!--            <img src="assets">-->
-            <div class="icon">
 
-            </div>
-            <p>Todas</p>
-          </div>
+
+
 
           <div class="item">
             <!--            <img src="assets">-->
-            <div class="icon">
-
-            </div>
-            <p>Todas</p>
-          </div>
-
-          <div class="item">
-            <!--            <img src="assets">-->
-            <div class="icon">
-
-            </div>
-            <p>Todas</p>
-          </div>
-
-          <div class="item">
-            <!--            <img src="assets">-->
-            <div class="icon">
-
-            </div>
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
             <p>Todas</p>
           </div>
 
@@ -140,20 +132,44 @@
 
     <ion-row>
       <ion-col>
-        <h5>Estabelecimentos</h5>
+        <h5 class="title ion-margin-bottom">Destaques</h5>
 
         <div class="estabelecimentoBox">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-              <ion-card-title>Card Title</ion-card-title>
-            </ion-card-header>
 
-            <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-          </ion-card>
+
+
+          <div class="estabelecimento-item" *ngFor="let estabelecimento of estabelecimentos" >
+            <ion-thumbnail slot="start" [routerLink]="['feed/:idCategoria']">
+              <img src="assets/Untitled.png">
+            </ion-thumbnail>
+<!--            <ion-label>-->
+<!--              <p>Meat</p>-->
+<!--              <a>Ver Cupons</a>-->
+<!--              <p>Gastronomia, Hamburgueria</p>-->
+<!--              <p>Rua Do Imperador, 150</p>-->
+<!--            </ion-label>-->
+            <div class="content">
+              <ion-row>
+                <p class="title">Meat</p>
+                <a class="cupomLink ion-float-right">Ver Cupons</a>
+              </ion-row>
+              <ion-row>
+                <p class="tags">Gastronomia, Hamburgueria</p>
+              </ion-row>
+              <ion-row>
+                <p class="adresss">Rua Do Imperador, 150</p>
+              </ion-row>
+
+            </div>
+
+
+
+
+
+          </div>
+
+
+
 
 
         </div>

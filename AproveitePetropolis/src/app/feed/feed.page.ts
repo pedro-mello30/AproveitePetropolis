@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedPage implements OnInit {
 
-  constructor() { }
+  public estabelecimentos;
+
+  constructor() {
+    this.estabelecimentos = Array(5).fill(4);
+
+
+  }
 
   ngOnInit() {
   }

@@ -30,8 +30,33 @@
 //ion-header{
 //  height: 90px;
 //}
-//ion-title{
-//  text-align: center;
-//  font-family: 'Ubuntu', sans-serif;
-//  font-weight: normal;
-//}
+
+
+p, h1, h2, h3, h4, h5, h6, ion-title, ion-text{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: normal;
+
+}
+
+ion-toolbar, ion-header {
+  --min-height: 100px;
+  --background: #333333;
+  ion-title{
+    padding-top: 50px;
+    --color: #bea063;
+  }
+  ion-back-button{
+    padding-top: 50px;
+    --color: #f2f2f2;
+  }
+}
+
+ion-tab-bar{
+  --background: #333333;
+  --color: #f2f2f2;
+  --color-selected: #bea063;
+}
+
+ion-content{
+  --background: #f2f2f2;
+}
