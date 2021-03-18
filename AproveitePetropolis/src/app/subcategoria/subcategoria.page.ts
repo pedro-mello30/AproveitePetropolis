@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubcategoriaPage implements OnInit {
 
-  constructor() { }
+  public estabelecimentos;
+
+  constructor() {
+
+    this.estabelecimentos = Array(5).fill(4);
+  }
 
   ngOnInit() {
   }
