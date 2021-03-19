@@ -1,0 +1,68 @@
+
+.estabelecimento-card{
+  width: 100%;
+  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+  border-radius: 5px;
+}
+
+.foto-estabelecimento{
+  width: 100%;
+  height: 200px;
+  --border-radius: 5px;
+}
+
+
+.estabelecimento-content{
+  padding: 0px 15px;
+  padding-bottom: 15px;
+}
+
+
+ion-segment{
+  font-family: 'Ubuntu', sans-serif;
+  ion-segment-button{
+    --color: #7c7b7b;
+  }
+}
+
+
+.informacoes-content{
+
+  .title{
+    margin-top: 15px;
+    color: #333333;
+  }
+
+  .text{
+    color: #b3b3b3;
+    font-size: 14px;
+    span{
+      color: #7c7b7b;
+    }
+  }
+
+  .fotos-list{
+    display: -webkit-inline-box;
+    width: 100%;
+    height: 95px;
+    overflow-y: -moz-scrollbars-none;
+    overflow-x: auto;
+
+    .item{
+      margin-right: 15px;
+      text-align: center;
+      ion-thumbnail{
+        --border-radius: 5px;
+        width: 90px;
+        height: 90px;
+        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+      }
+      p{
+        color: #333333;
+        font-size: 12px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+}
