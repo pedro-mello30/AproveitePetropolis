@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstabelecimentoPage implements OnInit {
 
+  selectedPage = 'informacoes';
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  segmentChanged(event : any){
+    this.selectedPage = event.target.value;
+  }
 }
