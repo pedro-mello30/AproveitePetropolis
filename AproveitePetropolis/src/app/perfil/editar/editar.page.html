@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>editar</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="edit-card">
+          <p>Editar Informações Pessoais</p>
+          <form class="form-edit">
+            <ion-input type="email" placeholder="Nome"></ion-input>
+            <ion-input type="email" placeholder="E-mail"></ion-input>
+            <ion-input type="number" placeholder="Telefone"></ion-input>
+          </form>
+          <ion-col size="8" offset="2">
+            <ion-button expand="block">
+              Editar
+            </ion-button>
+          </ion-col>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
