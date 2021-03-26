@@ -32,21 +32,30 @@ const routes: Routes = [
                 loadChildren: () => import('../categoria/categoria.module').then( m => m.CategoriaPageModule)
               },
               {
-                path: ':idSubcategoria',
+                path: 'idSubcategoria',
                 children: [
                   {
                     path: '',
                     loadChildren: () => import('../subcategoria/subcategoria.module').then( m => m.SubcategoriaPageModule)
                   },
                   {
-                    path: ':idEstabelecimento',
+                    path: 'idEstabelecimento',
                     loadChildren: () => import('../estabelecimento/estabelecimento.module').then( m => m.EstabelecimentoPageModule)
                   }
                 ]
               },
               {
-                path: 'estabelecimento/:idEstabelecimento',
-                loadChildren: () => import('../estabelecimento/estabelecimento.module').then( m => m.EstabelecimentoPageModule)
+                path: 'estabelecimento/idEstabelecimento',
+                children: [
+                  {
+                    path: '',
+                    loadChildren: () => import('../estabelecimento/estabelecimento.module').then( m => m.EstabelecimentoPageModule)
+                  },
+                  {
+                    path: 'cupom',
+                    loadChildren: () => import('../cupom/cupom.module').then( m => m.CupomPageModule)
+                  }
+                ]
               },
             ]
           }
