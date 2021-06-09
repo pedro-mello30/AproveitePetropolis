@@ -12,21 +12,22 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col size="12">
-        <p class="title">Login</p>
-        <form class="form-login">
-          <ion-input type="email" placeholder="E-mail"></ion-input>
-          <ion-input type="password" placeholder="Senha"></ion-input>
-        </form>
-      </ion-col>
-      <ion-col size="10" offset="1" class="ion-justify-content-center ion-align-items-center ion-align-self-center">
-        <ion-button expand="block" routerLink="/tabs/feed">
-          Entrar
-        </ion-button>
-        <a class="button-cadastro" routerLink="/login/cadastro">Cadastre-se</a>
-      </ion-col>
-    </ion-row>
+    <form class="form-login" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <ion-row>
+        <ion-col size="12">
+          <p class="title">Login</p>
+            <ion-input type="email" formControlName="email" placeholder="E-mail"></ion-input>
+            <ion-input type="password" formControlName="senha" placeholder="Senha"></ion-input>
+        </ion-col>
+        <ion-col size="10" offset="1" class="ion-justify-content-center ion-align-items-center ion-align-self-center">
+          <ion-button expand="block" type="submit">
+            Entrar
+          </ion-button>
+          <a class="button-cadastro" routerLink="/login/cadastro">Cadastre-se</a>
+        </ion-col>
+      </ion-row>
+    </form>
+
 
     <ion-row>
       <ion-col class="ion-justify-content-center ion-align-items-center ion-align-self-center">

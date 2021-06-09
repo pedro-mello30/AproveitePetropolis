@@ -9,19 +9,21 @@
     <ion-row>
       <ion-col size="12">
         <p class="title">Cadastre-se</p>
-        <form class="form-login">
-          <ion-input type="text" placeholder="Nome"></ion-input>
-          <ion-input type="email" placeholder="E-mail"></ion-input>
-          <ion-input type="text" placeholder="Telefone"></ion-input>
-          <ion-input type="password" placeholder="Senha"></ion-input>
+        <form class="form-login" [formGroup]="formCriarConta"  (ngSubmit)="onSubmit()">
+          <ion-input type="text" formControlName="nome" placeholder="Nome"></ion-input>
+          <ion-input type="email" formControlName="email" placeholder="E-mail"></ion-input>
+          <ion-input type="text" formControlName="telefone" placeholder="Telefone"></ion-input>
+          <ion-input type="password" formControlName="senha" placeholder="Senha"></ion-input>
+
+          <ion-col size="10" offset="1" class="ion-justify-content-center ion-align-items-center ion-align-self-center">
+            <ion-button expand="block" (click)="onSubmit()">
+              Cadastrar
+            </ion-button>
+            <a class="button-cadastro" routerLink="/login">Login</a>
+          </ion-col>
         </form>
       </ion-col>
-      <ion-col size="10" offset="1" class="ion-justify-content-center ion-align-items-center ion-align-self-center">
-        <ion-button expand="block" routerLink="/tabs/feed">
-          Cadastrar
-        </ion-button>
-        <a class="button-cadastro" routerLink="/login">Login</a>
-      </ion-col>
+
     </ion-row>
 
     <ion-row>
