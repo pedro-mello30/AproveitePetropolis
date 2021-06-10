@@ -34,4 +34,17 @@ export class EstabelecimentoService {
       })
     );
   }
+
+  getByField(field: string , value: string){
+    const estabelrecimentosRef = this.db.list(FirebasePath.ESTABELECIMENTOS, query => query
+      .orderByChild(field)
+      .equalTo(value));
+
+    return estabelrecimentosRef.snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(m => ({ key: m.payload.key, ...m.payload.val() as {} }));
+      })
+    );
+  }
+
 }

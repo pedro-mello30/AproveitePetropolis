@@ -64,6 +64,10 @@ const routes: Routes = [
             path: 'estabelecimento/:key',
             loadChildren: () => import('../estabelecimento/estabelecimento.module').then(m => m.EstabelecimentoPageModule)
           },
+          {
+            path: 'categoria/:key',
+            loadChildren: () => import('../subcategoria/subcategoria.module').then( m => m.SubcategoriaPageModule)
+          },
         ]
       },
       {

@@ -85,7 +85,7 @@
         <div class="categoriaBox">
           <div class="item" *ngFor="let categoria of categorias | async">
             <!--            <img src="assets">-->
-            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/idCategoria']">
+            <ion-thumbnail slot="start" [routerLink]="['categoria', categoria.key]">
               <img *ngIf="categoria.imagem" src="{{categoria.imagem}}">
               <img *ngIf="!categoria.imagem" src="assets/no_image.jpg">
             </ion-thumbnail>
