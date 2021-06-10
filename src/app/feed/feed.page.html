@@ -102,7 +102,7 @@
 
         <div class="estabelecimento-list">
           <div class="estabelecimento-item" *ngFor="let estabelecimento of estabelecimentos | async" >
-            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/idCategoria/estabelecimento/idEstabelecimento']">
+            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/estabelecimento/', estabelecimento.key]">
               <img *ngIf="estabelecimento.logo" src="{{estabelecimento.logo}}">
               <img *ngIf="!estabelecimento.logo" src="assets/no_image.jpg">
             </ion-thumbnail>

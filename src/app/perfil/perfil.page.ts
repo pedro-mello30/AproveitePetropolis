@@ -9,6 +9,8 @@ import {Router} from "@angular/router";
 })
 export class PerfilPage implements OnInit {
 
+  usuario;
+
   constructor(
     private usuarioAuthService: UsuarioAuthService,
     private router: Router
@@ -16,6 +18,8 @@ export class PerfilPage implements OnInit {
   { }
 
   ngOnInit() {
+    this.usuario = this.usuarioAuthService.getUser();
+    console.log(this.usuario);
   }
 
   logout(){

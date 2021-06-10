@@ -58,8 +58,17 @@ const routes: Routes = [
                 ]
               },
             ]
-          }
+          },
+
+          {
+            path: 'estabelecimento/:key',
+            loadChildren: () => import('../estabelecimento/estabelecimento.module').then(m => m.EstabelecimentoPageModule)
+          },
         ]
+      },
+      {
+        path: 'estabelecimento/:key',
+        loadChildren: () => import('../estabelecimento/estabelecimento.module').then(m => m.EstabelecimentoPageModule)
       },
       {
         path: 'perfil',

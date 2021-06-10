@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>estabelecimento</ion-title>
+    <ion-title>{{estabelecimento.nome}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -12,8 +12,9 @@
     <ion-row>
       <ion-col>
         <div class="estabelecimento-card">
-          <ion-thumbnail class="foto-estabelecimento" slot="start" [routerLink]="['feed/:idCategoria']">
-            <img src="assets/Untitled.png">
+          <ion-thumbnail class="foto-estabelecimento" slot="start">
+            <img *ngIf="estabelecimento.logo" src="{{estabelecimento.logo}}">
+            <img *ngIf="!estabelecimento.logo" src="assets/no_image.jpg">
           </ion-thumbnail>
 
           <div class="estabelecimento-content">
@@ -27,7 +28,7 @@
             </ion-segment>
 
 
-            <app-informacoes-contents *ngIf="selectedPage === 'informacoes'"></app-informacoes-contents>
+            <app-informacoes-contents [estabelecimento]="estabelecimento" *ngIf="selectedPage === 'informacoes'"></app-informacoes-contents>
             <app-cupom-contents *ngIf="selectedPage === 'cupons'"></app-cupom-contents>
           </div>
 

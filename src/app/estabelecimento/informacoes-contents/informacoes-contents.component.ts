@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {EstabelecimentosImagensService} from "../shared/estabelecimentos-imagens.service";
 
 @Component({
   selector: 'app-informacoes-contents',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacoesContentsComponent implements OnInit {
 
-  constructor() { }
+  @Input() estabelecimento;
+  imagens;
 
-  ngOnInit() {}
+  constructor(
+    private estabelecimentosImagensService: EstabelecimentosImagensService
+  ) { }
+
+  ngOnInit() {
+    const subscribe = this.estabelecimentosImagensService.getByField('estabelecimentoKey', this.estabelecimento.key).subscribe((imagens) => {
+      subscribe.unsubscribe();
+      this.imagens = imagens;
+    })
+  }
 
 }
