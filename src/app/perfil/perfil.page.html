@@ -11,7 +11,8 @@
         <div class="perfil-card">
           <div class="perfil-avatar">
             <ion-avatar>
-              <img src="assets/Untitled.png">
+              <img *ngIf="usuario.photoURL" src="{{usuario.photoURL}}">
+              <img *ngIf="!usuario.photoURL" src="assets/no_profile.png">
             </ion-avatar>
             <p class="ion-no-margin">{{usuario.name}}</p>
           </div>
