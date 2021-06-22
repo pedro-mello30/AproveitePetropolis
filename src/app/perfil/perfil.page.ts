@@ -7,9 +7,11 @@ import {Router} from "@angular/router";
   templateUrl: './perfil.page.html',
   styleUrls: ['./perfil.page.scss'],
 })
+
 export class PerfilPage implements OnInit {
 
   usuario;
+
 
   constructor(
     private usuarioAuthService: UsuarioAuthService,
@@ -20,6 +22,17 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
     this.usuario = this.usuarioAuthService.getUser();
     console.log(this.usuario);
+  }
+
+  uploadImg(event: any){
+    if (event.target.files.length) {
+      this.usuarioAuthService.uploadImg(event.target.files[0])
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.usuario.photoUrl = reader.result.toString();
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   logout(){

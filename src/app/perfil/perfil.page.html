@@ -10,10 +10,11 @@
       <ion-col>
         <div class="perfil-card">
           <div class="perfil-avatar">
-            <ion-avatar>
-              <img *ngIf="usuario.photoURL" src="{{usuario.photoURL}}">
-              <img *ngIf="!usuario.photoURL" src="assets/no_profile.png">
+            <ion-avatar (click)="imagemInput.click()">
+              <img *ngIf="usuario.photoUrl" src="{{usuario.photoUrl}}">
+              <img *ngIf="!usuario.photoUrl" src="assets/no_profile.png">
             </ion-avatar>
+            <input type="file" #imagemInput (change)="uploadImg($event)">
             <p class="ion-no-margin">{{usuario.name}}</p>
           </div>
 

@@ -2,13 +2,20 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase';
 import {FirebasePath} from '../../core/shared/firebase-path';
+import {AngularFireDatabase} from "@angular/fire/database";
+import {AngularFireStorage} from "@angular/fire/storage";
+import {finalize, map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioAuthService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(
+    private afAuth: AngularFireAuth,
+    private db: AngularFireDatabase,
+    private storage: AngularFireStorage
+  ) { }
 
   // criarConta(usuario: any) {
   //   return new Promise((resolve, reject) => {
@@ -91,16 +98,58 @@ export class UsuarioAuthService {
     return mensagem;
   }
 
-  // updateProfile(values: any) {
-  //   return new Promise((resolve, reject) => {
-  //     this.afAuth.currentUser.updateProfile({ displayName: values.nome, photoURL: this.afAuth.currentUser.photoURL });
-  //
-  //     const path = `${FirebasePath.USUARIOS}${this.afAuth}`
-  //     this.db.object(path).update({ telefone: values.telefone, cpf: values.cpf })
-  //       .then(() => resolve())
-  //       .catch(() => reject());
-  //   });
-  // }
+  updateProfile(values: any) {
+    return new Promise((resolve, reject) => {
+      firebase.auth().currentUser.updateProfile({ displayName: values.nome, photoURL: firebase.auth().currentUser.photoURL });
+
+      const path = `${FirebasePath.USUARIOS}${firebase.auth().currentUser.uid}`
+      this.db.object(path).update({ telefone: values.telefone })
+        .then(() => resolve())
+        .catch(() => reject());
+    });
+  }
+
+  updatePassword(password: string){
+    var user = firebase.auth().currentUser;
+    user.updatePassword(password);
+  }
+
+  getDadosUsuario() {
+    const path = `${FirebasePath.USUARIOS}${firebase.auth().currentUser.uid}`
+    return this.db.object(path).snapshotChanges().pipe(
+      map(change => {
+        return ({ key: change.key, nome: firebase.auth().currentUser.displayName, ...change.payload.val() as {} });
+      })
+    );
+  }
+
+  uploadImg(file: File) {
+    var user = firebase.auth().currentUser;
+    return new Promise((resolve) => {
+      const path = `${FirebasePath.USUARIOS}${user.uid}`;
+      const filePath = `${FirebasePath.USUARIOS}${user.uid}/${file.name}`;
+      const ref = this.storage.ref(filePath);
+      const task = ref.put(file);
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          ref.getDownloadURL().subscribe((url => {
+            this.db.object(path).update({ img: url, filePath: filePath });
+            firebase.auth().currentUser.updateProfile({ displayName: user.displayName, photoURL: url });
+            resolve();
+          }));
+        })
+      ).subscribe();
+    })
+  }
+
+  removeImg(filePath: string) {
+    const path = `${FirebasePath.USUARIOS}${firebase.auth().currentUser.uid}`;
+    const ref = this.storage.ref(filePath);
+    ref.delete();
+    this.db.object(path).update({ img: '', filePath: '' });
+    firebase.auth().currentUser.updateProfile({ displayName: firebase.auth().currentUser.displayName, photoURL: null });
+  }
+
 
 
   getUser(){
@@ -109,11 +158,12 @@ export class UsuarioAuthService {
 
     if (user != null) {
       return {
+        uid: user.uid,
         name: user.displayName,
         email: user.email,
         photoUrl: user.photoURL,
         emailVerified: user.emailVerified,
-        uid: user.uid,
+        telefone: ''
       }
     }
   }
