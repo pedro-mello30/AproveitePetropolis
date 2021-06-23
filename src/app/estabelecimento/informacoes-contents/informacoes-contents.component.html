@@ -7,7 +7,7 @@
     <div class="item" *ngFor="let imagem of imagens">
       <!--            <img src="assets">-->
       <ion-thumbnail slot="start">
-        <img src="{{imagem.imagem}}">
+        <img src="{{imagem.imagem}}" (click)="openImg(imagem.imagem)">
       </ion-thumbnail>
     </div>
 
@@ -70,8 +70,8 @@
 
   <h5 class="title ion-no-margin ion-margin-bottom">Sobre</h5>
   <p class="text">
-    {{estabelecimento.categoriaNome}} {{estabelecimento.subcategoriaNome}}<br>
+    {{estabelecimento.categoriaNome}}<span *ngIf="estabelecimento.subcategoriaNome">,</span> {{estabelecimento.subcategoriaNome}}<br>
     Rua do Imperador, 150
   </p>
-  <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor eu ipsum vel condimentum. Suspendisse faucibus nisl ac ultrices lacinia. Suspendisse sagittis eros eget venenatis congue. Duis in sem diam. Aenean ac dignissim tortor, et cursus massa. Nullam id ultrices nisi. Donec cursus metus non nisl porttitor elementum.</p>
+<!--  <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor eu ipsum vel condimentum. Suspendisse faucibus nisl ac ultrices lacinia. Suspendisse sagittis eros eget venenatis congue. Duis in sem diam. Aenean ac dignissim tortor, et cursus massa. Nullam id ultrices nisi. Donec cursus metus non nisl porttitor elementum.</p>-->
 </div>

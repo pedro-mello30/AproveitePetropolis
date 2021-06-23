@@ -47,4 +47,10 @@ export class EstabelecimentoService {
     );
   }
 
+  incrementVisit(estabelecimento: any){
+    const path = `${FirebasePath.ESTABELECIMENTOS}${estabelecimento.key}`;
+    estabelecimento.visitas = estabelecimento.visitas + 1;
+    this.estabelecimentosRef.update(estabelecimento.key, estabelecimento);
+  }
+
 }

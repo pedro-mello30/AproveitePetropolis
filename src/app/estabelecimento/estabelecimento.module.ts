@@ -10,17 +10,23 @@ import { EstabelecimentoPage } from './estabelecimento.page';
 import {InformacoesContentsComponent} from "./informacoes-contents/informacoes-contents.component";
 import {CupomContentsComponent} from "./cupom-contents/cupom-contents.component";
 
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EstabelecimentoPageRoutingModule
+    EstabelecimentoPageRoutingModule,
   ],
   declarations: [
     EstabelecimentoPage,
     InformacoesContentsComponent,
     CupomContentsComponent
+  ],
+  providers: [
+    PhotoViewer
   ]
 })
 export class EstabelecimentoPageModule {}

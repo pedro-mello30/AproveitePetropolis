@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {EstabelecimentosImagensService} from "../shared/estabelecimentos-imagens.service";
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 
 @Component({
   selector: 'app-informacoes-contents',
@@ -12,7 +13,8 @@ export class InformacoesContentsComponent implements OnInit {
   imagens;
 
   constructor(
-    private estabelecimentosImagensService: EstabelecimentosImagensService
+    private estabelecimentosImagensService: EstabelecimentosImagensService,
+    private photoViewer: PhotoViewer
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,10 @@ export class InformacoesContentsComponent implements OnInit {
       subscribe.unsubscribe();
       this.imagens = imagens;
     })
+  }
+
+  openImg(path: string){
+    this.photoViewer.show(path);
   }
 
 }

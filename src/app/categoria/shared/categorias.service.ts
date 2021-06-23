@@ -34,4 +34,16 @@ export class CategoriasService {
       })
     );
   }
+
+  getByName(name: string){
+    var categoriaRef = this.db.list(FirebasePath.CATEGORIAS, query => query
+      .orderByChild('nome')
+      .equalTo(name));
+
+    return categoriaRef.snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(m => ({ key: m.payload.key, ...m.payload.val() as {} }))
+      })
+    );
+  }
 }

@@ -49,6 +49,11 @@ ion-toolbar, ion-header {
     padding-top: 50px;
     --color: #f2f2f2;
   }
+
+  .md ion-back-button{
+    padding-top: 32px;
+    --color: #f2f2f2;
+  }
 }
 
 ion-tab-bar{

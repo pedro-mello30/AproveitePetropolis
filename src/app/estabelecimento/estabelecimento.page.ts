@@ -25,6 +25,7 @@ export class EstabelecimentoPage implements OnInit {
       const subscribe = this.estabelecimentoService.getByKey(key).subscribe((estabelecimento: any) => {
         subscribe.unsubscribe();
         this.estabelecimento = estabelecimento;
+        this.estabelecimentoService.incrementVisit(estabelecimento);
       })
     }
   }
@@ -32,4 +33,6 @@ export class EstabelecimentoPage implements OnInit {
   segmentChanged(event : any){
     this.selectedPage = event.target.value;
   }
+
+
 }

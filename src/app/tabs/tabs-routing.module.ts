@@ -44,22 +44,8 @@ const routes: Routes = [
                   }
                 ]
               },
-              {
-                path: 'estabelecimento/idEstabelecimento',
-                children: [
-                  {
-                    path: '',
-                    loadChildren: () => import('../estabelecimento/estabelecimento.module').then( m => m.EstabelecimentoPageModule)
-                  },
-                  {
-                    path: 'cupom',
-                    loadChildren: () => import('../cupom/cupom.module').then( m => m.CupomPageModule)
-                  }
-                ]
-              },
             ]
           },
-
           {
             path: 'estabelecimento/:key',
             loadChildren: () => import('../estabelecimento/estabelecimento.module').then(m => m.EstabelecimentoPageModule)
@@ -70,10 +56,10 @@ const routes: Routes = [
           },
         ]
       },
-      {
-        path: 'estabelecimento/:key',
-        loadChildren: () => import('../estabelecimento/estabelecimento.module').then(m => m.EstabelecimentoPageModule)
-      },
+      // {
+      //   path: 'estabelecimento/:key',
+      //   loadChildren: () => import('../estabelecimento/estabelecimento.module').then(m => m.EstabelecimentoPageModule)
+      // },
       {
         path: 'perfil',
         loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule)

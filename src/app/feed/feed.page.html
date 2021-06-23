@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar></ion-searchbar>
+  <ion-searchbar (search)="filter($event.target.value)"></ion-searchbar>
+
+
+
 
   <ion-grid>
     <ion-row>
@@ -96,13 +99,14 @@
       </ion-col>
     </ion-row>
 
+
     <ion-row>
       <ion-col>
         <h5 class="title ion-margin-bottom">Destaques</h5>
 
         <div class="estabelecimento-list">
           <div class="estabelecimento-item" *ngFor="let estabelecimento of estabelecimentos | async" >
-            <ion-thumbnail slot="start" [routerLink]="['estabelecimento/', estabelecimento.key]">
+            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/estabelecimento/', estabelecimento.key]">
               <img *ngIf="estabelecimento.logo" src="{{estabelecimento.logo}}">
               <img *ngIf="!estabelecimento.logo" src="assets/no_image.jpg">
             </ion-thumbnail>
@@ -112,7 +116,7 @@
                 <a class="cupomLink ion-float-right">Ver Cupons</a>
               </ion-row>
               <ion-row>
-                <p class="tags">{{estabelecimento.categoriaNome}}, {{estabelecimento.subcategoriaNome}}</p>
+                <p class="tags">{{estabelecimento.categoriaNome}}<span *ngIf="estabelecimento.subcategoriaNome">,</span> {{estabelecimento.subcategoriaNome}}</p>
               </ion-row>
               <ion-row>
                 <p class="adresss">{{estabelecimento.enderecos.rua}}</p>
