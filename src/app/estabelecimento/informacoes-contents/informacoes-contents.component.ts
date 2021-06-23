@@ -18,10 +18,10 @@ export class InformacoesContentsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const subscribe = this.estabelecimentosImagensService.getByField('estabelecimentoKey', this.estabelecimento.key).subscribe((imagens) => {
-      subscribe.unsubscribe();
-      this.imagens = imagens;
-    })
+    // const subscribe = this.estabelecimentosImagensService.getByField('estabelecimentoKey', this.estabelecimento?.key).subscribe((imagens) => {
+    //   subscribe.unsubscribe();
+    //   this.imagens = imagens;
+    // })
   }
 
   openImg(path: string){

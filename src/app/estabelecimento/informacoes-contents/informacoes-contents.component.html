@@ -41,10 +41,10 @@
 
   <h5 class="title ion-no-margin ion-margin-bottom">Contatos</h5>
   <p class="text">
-    {{estabelecimento.contato.telefone}}<br><br>
-    {{estabelecimento.contato.instagram}}<br>
-    {{estabelecimento.contato.facebook}}<br>
-    {{estabelecimento.contato.site}}
+    {{estabelecimento?.contato.telefone}}<br><br>
+    {{estabelecimento?.contato.instagram}}<br>
+    {{estabelecimento?.contato.facebook}}<br>
+    {{estabelecimento?.contato.site}}
   </p>
 
   <h5 class="title ion-no-margin ion-margin-bottom">Formas De Pagamento</h5>
@@ -59,18 +59,18 @@
 
   <h5 class="title ion-no-margin ion-margin-bottom">Horários</h5>
   <p class="text">
-    <span>Segunda-feira:</span> {{estabelecimento.horario.segunda.de }} às {{estabelecimento.horario.segunda.as }} <br>
-    <span>Terça-feira:</span> {{estabelecimento.horario.terca.de }} às {{estabelecimento.horario.terca.as }} <br>
-    <span>Quarta-feira:</span> {{estabelecimento.horario.quarta.de }} às {{estabelecimento.horario.quarta.as }} <br>
-    <span>Quinta-feira:</span> {{estabelecimento.horario.quinta.de }} às {{estabelecimento.horario.quinta.as }} <br>
-    <span>Sexta-feira:</span> {{estabelecimento.horario.sexta.de }} às {{estabelecimento.horario.sexta.as }} <br>
-    <span>Sábado:</span> {{estabelecimento.horario.sabado.de }} às {{estabelecimento.horario.sabado.as }} <br>
-    <span>Domingo:</span> {{estabelecimento.horario.domingo.de }} às {{estabelecimento.horario.domingo.as }} <br>
+    <span>Segunda-feira:</span> {{estabelecimento?.horario.segunda.de }} às {{estabelecimento?.horario.segunda.as }} <br>
+    <span>Terça-feira:</span> {{estabelecimento?.horario.terca.de }} às {{estabelecimento?.horario.terca.as }} <br>
+    <span>Quarta-feira:</span> {{estabelecimento?.horario.quarta.de }} às {{estabelecimento?.horario.quarta.as }} <br>
+    <span>Quinta-feira:</span> {{estabelecimento?.horario.quinta.de }} às {{estabelecimento?.horario.quinta.as }} <br>
+    <span>Sexta-feira:</span> {{estabelecimento?.horario.sexta.de }} às {{estabelecimento?.horario.sexta.as }} <br>
+    <span>Sábado:</span> {{estabelecimento?.horario.sabado.de }} às {{estabelecimento?.horario.sabado.as }} <br>
+    <span>Domingo:</span> {{estabelecimento?.horario.domingo.de }} às {{estabelecimento?.horario.domingo.as }} <br>
   </p>
 
   <h5 class="title ion-no-margin ion-margin-bottom">Sobre</h5>
   <p class="text">
-    {{estabelecimento.categoriaNome}}<span *ngIf="estabelecimento.subcategoriaNome">,</span> {{estabelecimento.subcategoriaNome}}<br>
+    {{estabelecimento?.categoriaNome}}<span *ngIf="estabelecimento?.subcategoriaNome">,</span> {{estabelecimento?.subcategoriaNome}}<br>
     Rua do Imperador, 150
   </p>
 <!--  <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor eu ipsum vel condimentum. Suspendisse faucibus nisl ac ultrices lacinia. Suspendisse sagittis eros eget venenatis congue. Duis in sem diam. Aenean ac dignissim tortor, et cursus massa. Nullam id ultrices nisi. Donec cursus metus non nisl porttitor elementum.</p>-->

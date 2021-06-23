@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{estabelecimento.nome}}</ion-title>
+    <ion-title *ngIf="estabelecimento">{{estabelecimento.nome}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -13,8 +13,8 @@
       <ion-col>
         <div class="estabelecimento-card">
           <ion-thumbnail class="foto-estabelecimento" slot="start">
-            <img *ngIf="estabelecimento.logo" src="{{estabelecimento.logo}}">
-            <img *ngIf="!estabelecimento.logo" src="assets/no_image.jpg">
+            <img *ngIf="estabelecimento?.logo" src="{{estabelecimento.logo}}">
+            <img *ngIf="!estabelecimento?.logo" src="assets/no_image.jpg">
           </ion-thumbnail>
 
           <div class="estabelecimento-content">

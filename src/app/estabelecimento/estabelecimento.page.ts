@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {EstabelecimentoService} from "./shared/estabelecimento.service";
+import {Estabelecimento} from "./shared/estabelecimento";
 
 @Component({
   selector: 'app-estabelecimento',
@@ -11,7 +12,8 @@ import {EstabelecimentoService} from "./shared/estabelecimento.service";
 export class EstabelecimentoPage implements OnInit {
 
   selectedPage = 'informacoes';
-  estabelecimento;
+  estabelecimento: Estabelecimento;
+
 
   constructor(
     private route: ActivatedRoute,

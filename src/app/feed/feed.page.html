@@ -112,7 +112,7 @@
             </ion-thumbnail>
             <div class="content">
               <ion-row>
-                <p class="title">{{estabelecimento.nome}}</p>
+                <p class="title" *ngIf="estabelecimento">{{estabelecimento.nome}}</p>
                 <a class="cupomLink ion-float-right">Ver Cupons</a>
               </ion-row>
               <ion-row>
