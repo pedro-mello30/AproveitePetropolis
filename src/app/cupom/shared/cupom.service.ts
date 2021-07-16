@@ -39,12 +39,26 @@ export class CupomService {
     );
   }
 
+  getByEstabelecimento(estabelecimentoKey: string, status: boolean){
+    const cuponsRef = this.db.list(FirebasePath.CUPONS, query => query
+      .orderByChild('estabelecimentoKey')
+      .equalTo(estabelecimentoKey)
+      .orderByChild('status').equalTo(true));
+
+    return cuponsRef.snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(m => ({ key: m.payload.key, ...m.payload.val() as {} }));
+      })
+    );
+  }
+
   insert(cupom: any){
     return new Promise(resolve => {
       this.cuponsRef.push(cupom)
         .then((result: any) => resolve(result.key));
     });
   }
+
 
   update(key: string, cupom: any){
     return new Promise((resolve, reject) => {
@@ -58,4 +72,33 @@ export class CupomService {
   remove(key: string){
     return this.cuponsRef.remove(key);
   }
+
+  generateCupom(estabelecimentoKey, emailUser){
+    // const path = `${FirebasePath.CUPONS_GERADOS}${estabelecimentoKey}`;
+    const path = `${FirebasePath.CUPONS_GERADOS}`;
+    const cupomRef = this.db.list(path);
+    const token = this.generateToken();
+    const date = new Date().toDateString();
+    const cupom = {
+      email: emailUser,
+      token: token,
+      date: date,
+      status: false
+    }
+    cupomRef.push(cupom);
+    return cupom.token;
+  }
+
+  generateToken(){
+    const length = 8;
+    var a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
+    var b = [];
+    for (var i=0; i<length; i++) {
+      var j = (Math.random() * (a.length-1)).toFixed(0);
+      b[i] = a[j];
+    }
+
+    return b.join("");
+  }
+
 }

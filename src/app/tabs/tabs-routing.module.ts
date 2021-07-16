@@ -52,7 +52,15 @@ const routes: Routes = [
           },
           {
             path: 'categoria/:key',
+            loadChildren: () => import('../categoria/categoria.module').then( m => m.CategoriaPageModule)
+          },
+          {
+            path: 'subcategoria/:key',
             loadChildren: () => import('../subcategoria/subcategoria.module').then( m => m.SubcategoriaPageModule)
+          },
+          {
+            path: 'cupom/:key',
+            loadChildren: () => import('../cupom/cupom.module').then( m => m.CupomPageModule)
           },
         ]
       },

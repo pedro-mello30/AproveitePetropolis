@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{categoria.nome}}</ion-title>
+    <ion-title>{{subcategoria?.nome}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -9,25 +9,25 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col>
-       <div class="subcategoriaBox">
-          <div class="item" *ngFor="let subcategoria of subcategorias">
-            <!--            <img src="assets">-->
-            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/idCategoria/idSubcategoria']">
-              <img *ngIf="subcategoria.imagem" src="{{subcategoria.imagem}}">
-              <img *ngIf="!subcategoria.imagem" src="assets/no_image.jpg">
-            </ion-thumbnail>
-            <p>{{subcategoria.nome}}</p>
-          </div>
-       </div>
-      </ion-col>
-    </ion-row>
+<!--    <ion-row>-->
+<!--      <ion-col>-->
+<!--       <div class="subcategoriaBox">-->
+<!--          <div class="item" *ngFor="let subcategoria of subcategorias">-->
+<!--            &lt;!&ndash;            <img src="assets">&ndash;&gt;-->
+<!--            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/idCategoria/idSubcategoria']">-->
+<!--              <img *ngIf="subcategoria?.imagem" src="{{subcategoria?.imagem}}">-->
+<!--              <img *ngIf="!subcategoria?.imagem" src="assets/no_image.jpg">-->
+<!--            </ion-thumbnail>-->
+<!--            <p>{{subcategoria?.nome}}</p>-->
+<!--          </div>-->
+<!--       </div>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
 
 
     <ion-row>
       <ion-col>
-        <h5 class="title ion-margin-bottom">Destaques</h5>
+        <h5 class="title ion-margin-bottom">Estabelecimentos</h5>
 
         <div class="estabelecimento-list">
           <div class="estabelecimento-item" *ngFor="let estabelecimento of estabelecimentos" >
@@ -37,7 +37,7 @@
             </ion-thumbnail>
             <div class="content">
               <ion-row>
-                <p class="title">{{estabelecimento.nome}}</p>
+                <p class="title">{{estabelecimento?.nome}}</p>
                 <a class="cupomLink ion-float-right">Ver Cupons</a>
               </ion-row>
               <ion-row>

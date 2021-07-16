@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "resources": "capacitor-resources -p android"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +26,9 @@
     "@ionic-native/core": "^5.33.1",
     "@ionic-native/photo-viewer": "^5.33.1",
     "@ionic/angular": "^5.5.2",
+    "capacitor-resources": "^2.0.5",
     "com-sarriaroman-photoviewer": "^1.2.5",
+    "crypto": "^1.0.1",
     "firebase": "^8.6.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

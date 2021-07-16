@@ -29,7 +29,7 @@
 
 
             <app-informacoes-contents [estabelecimento]="estabelecimento" *ngIf="selectedPage === 'informacoes'"></app-informacoes-contents>
-            <app-cupom-contents *ngIf="selectedPage === 'cupons'"></app-cupom-contents>
+            <app-cupom-contents [estabelecimento]="estabelecimento" *ngIf="selectedPage === 'cupons'"></app-cupom-contents>
           </div>
 
         </div>

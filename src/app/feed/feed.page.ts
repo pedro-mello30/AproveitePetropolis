@@ -34,4 +34,13 @@ export class FeedPage implements OnInit {
     this.categorias = this.categoriasService.getByName(searchTerm);
   }
 
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
 }

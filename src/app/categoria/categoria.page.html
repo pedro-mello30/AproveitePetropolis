@@ -1,6 +1,54 @@
+<!--<ion-header>-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>categoria</ion-title>-->
+<!--    <ion-buttons slot="start">-->
+<!--      <ion-back-button></ion-back-button>-->
+<!--    </ion-buttons>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content>-->
+<!--  <ion-grid>-->
+<!--    <ion-row>-->
+<!--      <div class="categoria-content">-->
+
+<!--      </div>-->
+<!--      <ion-col size="12" class="categoria-contents">-->
+<!--        <div class="categoria-contents">-->
+<!--          <div class="categoria-item">-->
+<!--            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/idCategoria/idSubcategoria']">-->
+<!--              <img src="assets/Untitled.png">-->
+<!--            </ion-thumbnail>-->
+<!--            <p>Gastronomia</p>-->
+<!--          </div>-->
+<!--          <div class="categoria-item">-->
+<!--            <ion-thumbnail slot="start" [routerLink]="['']">-->
+<!--              <img src="assets/Untitled.png">-->
+<!--            </ion-thumbnail>-->
+<!--            <p>Gastronomia</p>-->
+<!--          </div>-->
+<!--          <div class="categoria-item">-->
+<!--            <ion-thumbnail slot="start" [routerLink]="['']">-->
+<!--              <img src="assets/Untitled.png">-->
+<!--            </ion-thumbnail>-->
+<!--            <p>Gastronomia</p>-->
+<!--          </div>-->
+<!--          <div class="categoria-item">-->
+<!--            <ion-thumbnail slot="start" [routerLink]="['']">-->
+<!--              <img src="assets/Untitled.png">-->
+<!--            </ion-thumbnail>-->
+<!--            <p>Gastronomia</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </ion-col>-->
+
+<!--    </ion-row>-->
+<!--  </ion-grid>-->
+<!--</ion-content>-->
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>categoria</ion-title>
+    <ion-title>{{categoria?.nome}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -9,39 +57,48 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <div class="categoria-content">
-
-      </div>
-      <ion-col size="12" class="categoria-contents">
-        <div class="categoria-contents">
-          <div class="categoria-item">
-            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/idCategoria/idSubcategoria']">
-              <img src="assets/Untitled.png">
+    <ion-row  *ngIf="subcategorias">
+      <ion-col>
+        <div class="subcategoriaBox">
+          <div class="item" *ngFor="let subcategoria of subcategorias">
+            <!--            <img src="assets">-->
+            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/subcategoria', subcategoria?.key]">
+              <img *ngIf="subcategoria?.imagem" src="{{subcategoria?.imagem}}">
+              <img *ngIf="!subcategoria?.imagem" src="assets/no_image.jpg">
             </ion-thumbnail>
-            <p>Gastronomia</p>
-          </div>
-          <div class="categoria-item">
-            <ion-thumbnail slot="start" [routerLink]="['']">
-              <img src="assets/Untitled.png">
-            </ion-thumbnail>
-            <p>Gastronomia</p>
-          </div>
-          <div class="categoria-item">
-            <ion-thumbnail slot="start" [routerLink]="['']">
-              <img src="assets/Untitled.png">
-            </ion-thumbnail>
-            <p>Gastronomia</p>
-          </div>
-          <div class="categoria-item">
-            <ion-thumbnail slot="start" [routerLink]="['']">
-              <img src="assets/Untitled.png">
-            </ion-thumbnail>
-            <p>Gastronomia</p>
+            <p>{{subcategoria?.nome}}</p>
           </div>
         </div>
       </ion-col>
+    </ion-row>
 
+
+    <ion-row>
+      <ion-col>
+        <h5 class="title ion-margin-bottom">Destaques</h5>
+
+        <div class="estabelecimento-list">
+          <div class="estabelecimento-item" *ngFor="let estabelecimento of estabelecimentos" >
+            <ion-thumbnail slot="start" [routerLink]="['/tabs/feed/estabelecimento/', estabelecimento.key]">
+              <img *ngIf="estabelecimento.logo" src="{{estabelecimento.logo}}">
+              <img *ngIf="!estabelecimento.logo" src="assets/no_image.jpg">
+            </ion-thumbnail>
+            <div class="content">
+              <ion-row>
+                <p class="title">{{estabelecimento?.nome}}</p>
+                <a class="cupomLink ion-float-right">Ver Cupons</a>
+              </ion-row>
+              <ion-row>
+                <p class="tags">{{estabelecimento.categoriaNome}}, {{estabelecimento.subcategoriaNome}}</p>
+              </ion-row>
+              <ion-row>
+                <p class="adresss">{{estabelecimento.enderecos.rua}}</p>
+              </ion-row>
+            </div>
+          </div>
+        </div>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+

@@ -12,15 +12,13 @@ import {Observable} from "rxjs";
 })
 export class SubcategoriaPage implements OnInit {
 
-  public categoria;
-  public subcategorias: Observable<any[]>;
+  public subcategoria;
   public estabelecimentos: Observable<any[]>;
 
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private categoriaService: CategoriasService,
     private subcategoriaService: SubcategoriasService,
     private estabelecimentoService: EstabelecimentoService
   ) {}
@@ -28,21 +26,12 @@ export class SubcategoriaPage implements OnInit {
   ngOnInit() {
     const key = this.route.snapshot.paramMap.get('key');
     if (key){
-      const subscri = this.categoriaService.getByKey(key).subscribe((categoria: any) => {
+      const subscri = this.subcategoriaService.getByKey(key).subscribe((subcategoria: any) => {
         subscri.unsubscribe();
-        this.categoria = categoria;
+        this.subcategoria = subcategoria;
       })
 
-
-      const subscribe = this.subcategoriaService.getByCategoriaKey(key).subscribe((subcategorias: any) => {
-        subscribe.unsubscribe();
-        this.subcategorias = subcategorias;
-        console.log(this.subcategorias);
-
-      })
-
-
-      const sub = this.estabelecimentoService.getByField('categoriaKey', key).subscribe((estabelecimentos: any) => {
+      const sub = this.estabelecimentoService.getByField('subcategoriaKey', key).subscribe((estabelecimentos: any) => {
         sub.unsubscribe();
         this.estabelecimentos = estabelecimentos;
       })

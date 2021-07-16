@@ -41,4 +41,12 @@ export class PerfilPage implements OnInit {
         this.router.navigate(['/login']);
       });
   }
+
+  doRefresh(event) {
+    this.ngOnInit();
+    setTimeout(() => {
+      // console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
 }

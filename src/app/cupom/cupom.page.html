@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Cupom</ion-title>
+    <ion-title>{{cupom?.nome}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -12,8 +12,9 @@
     <ion-row>
       <ion-col>
         <div class="cupom-card">
-          <ion-thumbnail class="foto-cupom" slot="start" [routerLink]="['feed/:idCategoria']">
-            <img src="assets/Untitled.png">
+          <ion-thumbnail class="foto-cupom" slot="start">
+            <img *ngIf="cupom?.imagem != ''" src="{{cupom?.imagem}}">
+            <img *ngIf="cupom?.imagem == ''" src="assets/Untitled.png">
           </ion-thumbnail>
 
           <div class="cupom-content">
@@ -22,14 +23,15 @@
 
             <div class="informacoes-content">
               <h5 class="title ion-no-margin ion-margin-bottom">Sobre</h5>
-              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor eu ipsum vel condimentum. Suspendisse faucibus nisl ac ultrices lacinia. Suspendisse sagittis eros eget venenatis congue. Duis in sem diam. Aenean ac dignissim tortor, et cursus massa. Nullam id ultrices nisi. Donec cursus metus non nisl porttitor elementum.</p>
+              <p class="text">{{cupom?.descricao}}</p>
 
 
               <ion-row>
                 <ion-col size="8" offset="2">
-                  <ion-button expand="block">
+                  <ion-button *ngIf="!token" expand="block" (click)="generateCupom(cupom?.estabelecimentoKey)">
                     Pegar Cupom
                   </ion-button>
+                  <p class="token" *ngIf="token">{{token}}</p>
                 </ion-col>
               </ion-row>
 

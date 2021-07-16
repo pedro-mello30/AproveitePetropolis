@@ -1,8 +1,6 @@
 <div class="cupom-content">
-  <ion-thumbnail class="cupom" slot="start" [routerLink]="['/tabs/feed/idCategoria/estabelecimento/idEstabelecimento/cupom']">
-    <img src="assets/Untitled.png">
-  </ion-thumbnail>
-  <ion-thumbnail class="cupom" slot="start" [routerLink]="['/tabs/feed/idCategoria/estabelecimento/idEstabelecimento/cupom']">
-    <img src="assets/Untitled.png">
+  <ion-thumbnail *ngFor="let cupom of cupons" class="cupom" slot="start" [routerLink]="['/tabs/feed/cupom', cupom.key]">
+    <img *ngIf="cupom.imagem !=''" src="{{cupom.imagem}}">
+    <img *ngIf="cupom.imagem ==''" src="assets/no_image.jpg">
   </ion-thumbnail>
 </div>
