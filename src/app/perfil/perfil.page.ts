@@ -49,4 +49,8 @@ export class PerfilPage implements OnInit {
       event.target.complete();
     }, 2000);
   }
+
+  goToLink(url: string){
+    window.open(url, "_blank");
+  }
 }
