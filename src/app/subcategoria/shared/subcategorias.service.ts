@@ -67,11 +67,14 @@ export class SubcategoriasService {
       .orderByChild('categoriaKey')
       .equalTo(categoriaKey));
 
-    return subcategoriasRef.snapshotChanges().pipe(
+    return subcategoriasRef
+    .snapshotChanges()
+    .pipe(
       map(changes => {
-        return changes.map(m => ({ key: m.payload.key, ...m.payload.val() as {} }));
+        return changes.map(m => ({ key: m.key , ...m.payload.val() as {} }));
       })
     );
+    // return subcategoriasRef.valueChanges();
   }
 
   remove(key: string, filePath: string){

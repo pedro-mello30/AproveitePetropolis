@@ -29,9 +29,9 @@ export class FeedPage implements OnInit {
     this.estabelecimentos = this.estabelecimentosService.getAll();
   }
 
-  filter(searchTerm: string){
-    console.log(searchTerm);
-    this.categorias = this.categoriasService.getByName(searchTerm);
+  filter(event){
+    console.log(event.target.value);
+    this.categorias = this.categoriasService.getByName(event.target.value);
   }
 
   doRefresh(event) {

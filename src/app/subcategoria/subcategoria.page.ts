@@ -13,7 +13,7 @@ import {Observable} from "rxjs";
 export class SubcategoriaPage implements OnInit {
 
   public subcategoria;
-  public estabelecimentos: Observable<any[]>;
+  public estabelecimentos;
 
 
   constructor(

@@ -13,8 +13,8 @@ import {EstabelecimentoService} from "../estabelecimento/shared/estabelecimento.
 export class CategoriaPage implements OnInit {
 
   public categoria;
-  public subcategorias: Observable<any[]>;
-  public estabelecimentos: Observable<any[]>;
+  public subcategorias;
+  public estabelecimentos;
 
 
   constructor(
